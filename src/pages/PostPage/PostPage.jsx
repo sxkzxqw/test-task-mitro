@@ -5,6 +5,7 @@ import { getCurrentPost, getCurrentPostComments } from '../../redux/Slices/PostS
 import Post from '../../components/Post/Post';
 import Loader from '../../components/Loader/Loader';
 import styles from './PostPage.module.css';
+import Comment from '../../components/Comment/Comment';
 
 const PostPage = () => {
     const { id } = useParams()
@@ -14,12 +15,24 @@ const PostPage = () => {
         dispatch(getCurrentPostComments(id))
     }, [])
     const post = useSelector((state) => state.post.currentPostInfo)
+    const comments = useSelector((state) => state.post.currentPostComments)
     const isLoading = useSelector((state) => state.post.isLoading)
     return (
         <div className={styles.wrapper}>
             {isLoading
                 ? <Loader />
-                : <Post post={post} />
+                : <>
+                    <Post post={post} />
+                    <div className={styles.border_container}>
+                        <p className={styles.comments}>{`Посмотреть комментарии (${comments.length})`}</p>
+                        <div className={styles.border}></div>
+                    </div>
+                    <ul className={styles.comments_list}>
+                        {comments.map((comment) => {
+                            return <Comment comment={comment} key={comment.id} />
+                        })}
+                    </ul>
+                </>
             }
         </div>
     );

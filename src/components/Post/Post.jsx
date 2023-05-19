@@ -6,7 +6,6 @@ import styles from './Post.module.css';
 import { Link } from 'react-router-dom';
 
 const Post = ({ post }) => {
-    console.log(post);
     const user = useSelector((state) => state.user.users).find((user) => user.id === post.userId)
     return (
         <Link className={styles.item} to={`/post/${post.id}`}>

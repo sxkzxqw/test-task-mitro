@@ -1,0 +1,31 @@
+.image {
+    background: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    object-fit: cover;
+    overflow: hidden;
+}
+
+.comment_author {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 5px;
+}
+
+.userName {
+    font-weight: 600;
+}
+
+.comment {
+    width: 100%;
+    border-left: 2px solid black;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
