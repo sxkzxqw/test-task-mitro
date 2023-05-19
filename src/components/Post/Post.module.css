@@ -1,0 +1,30 @@
+.item {
+    border: 2px solid #2F2F2F;
+    border-radius: 20px;
+    max-width: 700px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    color: inherit;
+    text-decoration: none;
+}
+
+.user_info {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+}
+
+.image {
+    background: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    object-fit: cover;
+    overflow: hidden;
+}
