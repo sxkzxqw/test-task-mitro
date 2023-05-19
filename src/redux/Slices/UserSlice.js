@@ -5,7 +5,8 @@ import axios from 'axios';
 const initialState = {
     users: [],
     currentUser: {},
-    isLoading: false,
+    isLoading: true,
+    user: {},
 }
 
 export const getUsers = createAsyncThunk(
@@ -16,26 +17,44 @@ export const getUsers = createAsyncThunk(
     }
 )
 
+export const getUser = createAsyncThunk(
+    'user/getUser',
+    async (user, { rejectWithValue, dispatch }) => {
+        const res = await axios.get(`${BASE_URL}/users/${user}`)
+        return res.data;
+    }
+)
+
 const userSlice = createSlice({
     name: 'user',
     initialState,
     reducers: {
-        setCurrentUser: (state, action) => {
-            state.currentUser = action.payload
+        setUser: (state, action) => {
+            state.user = action.payload
         },
     }, extraReducers: (builder) => {
-        builder.addCase(getUsers.fulfilled, (state, action) => {
-            state.users = action.payload;
-            state.isLoading = false;
-        }).addCase(getUsers.pending, (state) => {
-            state.isLoading = true;
-        }).addCase(getUsers.rejected, (state) => {
-            state.isLoading = false;
-            alert('Ошибка запроса')
-        })
+        builder
+            .addCase(getUsers.fulfilled, (state, action) => {
+                state.currentUser = action.payload[0]
+                state.users = action.payload;
+                state.isLoading = false;
+            }).addCase(getUsers.pending, (state) => {
+                state.isLoading = true;
+            }).addCase(getUsers.rejected, (state) => {
+                state.isLoading = false;
+                alert('Ошибка запроса')
+            }).addCase(getUser.fulfilled, (state, action) => {
+                state.user = action.payload;
+                state.isLoading = false;
+            }).addCase(getUser.pending, (state) => {
+                state.isLoading = true;
+            }).addCase(getUser.rejected, (state) => {
+                state.isLoading = false;
+                alert('Ошибка запроса')
+            })
     }
 });
 
-export const { setUsers, setCurrentUser } = userSlice.actions
+export const { setUser } = userSlice.actions
 
 export default userSlice.reducer;

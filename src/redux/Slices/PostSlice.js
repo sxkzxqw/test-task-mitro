@@ -57,6 +57,7 @@ const postSlice = createSlice({
                 state.isLoading = false;
             }).addCase(getCurrentPost.pending, (state) => {
                 state.currentPostInfo = {}
+                state.currentPostComments = []
                 state.isLoading = true;
             }).addCase(getCurrentPost.rejected, (state) => {
                 state.isLoading = false;

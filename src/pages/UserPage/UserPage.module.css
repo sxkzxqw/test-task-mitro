@@ -1,0 +1,75 @@
+.image {
+    background: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    overflow: hidden;
+}
+
+.userName {
+    font-size: 50px;
+}
+
+.avatar {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    align-items: center;
+}
+
+.userEmail {
+    font-size: 20px;
+}
+
+.wrapper {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.border {
+    width: 100%;
+    border: 1px solid #2F2F2F;
+}
+
+.realName {
+    display: flex;
+    flex-direction: row;
+    gap: 6px;
+}
+
+.leftInfo {
+    font-weight: 800;
+}
+
+.contactInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.button {
+    width: 100%;
+    border: none;
+    border-radius: 20px;
+    padding: 20px;
+    cursor: pointer;
+    margin-bottom: 30px;
+}
+
+.checkout {
+    text-align: center;
+}
+
+.posts {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    align-items: center;
+}
