@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/test-task-mitro/static/css/main.4412c4c6.css",
+    "main.js": "/test-task-mitro/static/js/main.67ee5f53.js",
+    "index.html": "/test-task-mitro/index.html",
+    "main.4412c4c6.css.map": "/test-task-mitro/static/css/main.4412c4c6.css.map",
+    "main.67ee5f53.js.map": "/test-task-mitro/static/js/main.67ee5f53.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.4412c4c6.css",
+    "static/js/main.67ee5f53.js"
+  ]
+}
