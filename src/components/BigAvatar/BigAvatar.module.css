@@ -24,3 +24,8 @@
     text-decoration: none;
     color: inherit;
 }
+
+.picture {
+    width: 100px;
+    height: 100px;
+}

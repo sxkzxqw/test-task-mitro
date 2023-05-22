@@ -15,7 +15,10 @@ const Post = ({ post }) => {
                 <Link className={styles.item} to={`/post/${post.id}`}>
                     <div className={styles.user_info}>
                         <div className={styles.image}>
-                            <FaUserAlt style={{ width: 30, height: 30, background: 'white' }} />
+                            {user.imageUrl
+                                ? <img src={user.imageUrl} alt={user.name} className={styles.picture} />
+                                : <FaUserAlt style={{ width: 30, height: 30, background: 'white' }} />
+                            }
                         </div>
                         <p>{user?.username}</p>
                     </div>

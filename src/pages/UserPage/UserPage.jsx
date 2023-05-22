@@ -29,7 +29,10 @@ const UserPage = () => {
                 : <>
                     <div className={styles.avatar}>
                         <div className={styles.image}>
-                            <FaUserAlt style={{ width: 200, height: 200, background: 'white' }} />
+                            {user.imageUrl
+                                ? <img src={user.imageUrl} alt={user.name} className={styles.picture} />
+                                : <FaUserAlt style={{ width: 200, height: 200, background: 'white' }} />
+                            }
                         </div>
                         <div className={styles.userInfo}>
                             <p className={styles.userName}>{user?.username}</p>

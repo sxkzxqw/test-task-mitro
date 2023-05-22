@@ -11,7 +11,10 @@ const BigAvatar = ({ user }) => {
             <Link to={`/user/${user.id}`} className={styles.wrapper}>
                 <div className={styles.user_info}>
                     <div className={styles.image}>
-                        <FaUserAlt style={{ width: 100, height: 100, background: 'white' }} />
+                        {user.imageUrl
+                            ? <img src={user.imageUrl} alt={user.name} className={styles.picture} />
+                            : <FaUserAlt style={{ width: 100, height: 100, background: 'white' }} />
+                        }
                     </div>
                     <p>{user?.username}</p>
                 </div>

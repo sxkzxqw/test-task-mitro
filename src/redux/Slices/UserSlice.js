@@ -35,8 +35,11 @@ const userSlice = createSlice({
     }, extraReducers: (builder) => {
         builder
             .addCase(getUsers.fulfilled, (state, action) => {
+                state.users = action.payload.map((user) => {
+                    user.imageUrl = `https://avatars.dicebear.com/api/croodles/${user.id}.svg`;
+                    return user;
+                });
                 state.currentUser = action.payload[0]
-                state.users = action.payload;
                 state.isLoading = false;
             }).addCase(getUsers.pending, (state) => {
                 state.isLoading = true;
@@ -45,6 +48,7 @@ const userSlice = createSlice({
                 alert('Ошибка запроса')
             }).addCase(getUser.fulfilled, (state, action) => {
                 state.user = action.payload;
+                state.user.imageUrl = `https://avatars.dicebear.com/api/croodles/${state.user.id}.svg`;
                 state.isLoading = false;
             }).addCase(getUser.pending, (state) => {
                 state.isLoading = true;

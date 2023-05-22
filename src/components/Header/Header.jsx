@@ -15,7 +15,10 @@ const Header = () => {
                 </Link>
                 <Link to={`/user/${user.id}`} className={styles.user}>
                     <div className={styles.image}>
-                        <FaUserAlt style={{ width: 30, height: 30, background: 'white' }} />
+                        {user.imageUrl
+                            ? <img src={user.imageUrl} alt={user.name} className={styles.picture} />
+                            : <FaUserAlt style={{ width: 30, height: 30, background: 'white' }} />
+                        }
                     </div>
                     <p>{user?.username}</p>
                 </Link>
