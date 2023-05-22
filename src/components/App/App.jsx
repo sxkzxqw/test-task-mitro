@@ -8,6 +8,7 @@ import { useDispatch } from 'react-redux';
 import { useEffect } from 'react'
 import { getPosts } from "../../redux/Slices/PostSlice";
 import { getUsers } from "../../redux/Slices/UserSlice";
+import Wrapper from "../Wrapper/Wrapper";
 
 function App() {
   const dispatch = useDispatch();
@@ -19,12 +20,14 @@ function App() {
   return (
     <>
       <Header />
-      <Routes>
-        <Route path='/' element={<HomePage />} />
-        <Route path='/post/:id' element={<PostPage />} />
-        <Route path='/user/:id' element={<UserPage />} />
-        <Route path='*' element={<PageNotFound />} />
-      </Routes>
+      <Wrapper>
+        <Routes>
+          <Route path='/' element={<HomePage />} />
+          <Route path='/post/:id' element={<PostPage />} />
+          <Route path='/user/:id' element={<UserPage />} />
+          <Route path='*' element={<PageNotFound />} />
+        </Routes>
+      </Wrapper>
     </>
   )
 }
